@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import MUButton from '@material-ui/core/Button';
+import MuiButton from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 
 
@@ -18,9 +18,9 @@ class AddButton extends Component {
         const {classes} = this.props;
 
         return (
-            <MUButton variant="fab" color="primary" aria-label="Add" className={classes.button}>
+            <MuiButton variant="fab" color="primary" aria-label="Add" className={classes.button}>
                 <AddIcon/>
-            </MUButton>
+            </MuiButton>
         );
     }
 }

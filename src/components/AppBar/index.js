@@ -2,10 +2,10 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {withStyles} from '@material-ui/core/styles';
-import MUAppBar from '@material-ui/core/AppBar';
-import MUToolbar from '@material-ui/core/Toolbar';
-import MUIconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import MuiAppBar from '@material-ui/core/AppBar';
+import MuiToolbar from '@material-ui/core/Toolbar';
+import MuiIconButton from '@material-ui/core/IconButton';
+import MuiMenuIcon from '@material-ui/icons/Menu';
 
 const drawerWidth = 240;
 
@@ -56,12 +56,12 @@ class AppBar extends Component {
 
         return (
             <Fragment>
-                <MUAppBar
+                <MuiAppBar
                     position="absolute"
                     className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
                 >
-                    <MUToolbar disableGutters={!this.state.open} className={classes.toolbar}>
-                        <MUIconButton
+                    <MuiToolbar disableGutters={!this.state.open} className={classes.toolbar}>
+                        <MuiIconButton
                             color="inherit"
                             aria-label="Open drawer"
                             onClick={this.handleDrawerOpen}
@@ -70,10 +70,10 @@ class AppBar extends Component {
                                 this.state.open && classes.menuButtonHidden,
                             )}
                         >
-                            <MenuIcon/>
-                        </MUIconButton>
-                    </MUToolbar>
-                </MUAppBar>
+                            <MuiMenuIcon/>
+                        </MuiIconButton>
+                    </MuiToolbar>
+                </MuiAppBar>
             </Fragment>
         );
     }
