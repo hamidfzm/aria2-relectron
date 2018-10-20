@@ -1,2 +1,2 @@
 react: BROWSER=none yarn run react
-electron: node src/electron-wait-react
+electron: ELECTRON_START_URL=http://localhost:3000 node src/electron-wait-react
