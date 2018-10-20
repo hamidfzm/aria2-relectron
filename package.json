@@ -1,8 +1,12 @@
 {
   "name": "aria2-relectron",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
+    "@material-ui/core": "^3.2.2",
+    "@material-ui/icons": "^3.0.1",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.6.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.5"
