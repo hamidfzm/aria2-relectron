@@ -7,11 +7,15 @@
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.5"
   },
+  "homepage": "./",
+  "main": "src/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "nf start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+    "react": "react-scripts start"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +25,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "electron": "^3.0.5",
+    "foreman": "^3.0.1"
+  }
 }
