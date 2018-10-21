@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 
 import Reducers from './reducers';
-import Dashboard from './components/Dashboard';
+import Screen from './containers/Screen';
 
 const theme = createMuiTheme();
 
@@ -21,7 +21,7 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <MuiThemeProvider theme={theme}>
-                    <Dashboard/>
+                    <Screen/>
                 </MuiThemeProvider>
             </Provider>
         );
