@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import Session from './Session';
+import UI from './UI';
 
 const rootReducer = combineReducers({
-    Session,
+    UI,
 });
 
 export default rootReducer;
