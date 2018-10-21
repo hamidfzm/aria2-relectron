@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {withStyles} from '@material-ui/core/styles';
@@ -16,7 +16,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        paddingTop: theme.spacing.unit * 1.1,
+        // paddingTop: theme.spacing.unit * 1.1,
         '-webkit-app-region': 'drag'
     },
     appBarShift: {
@@ -36,58 +36,40 @@ const styles = theme => ({
     },
     menuButtonHidden: {
         display: 'none',
-    },
-    spacing: {
-        ...theme.mixins.toolbar,
-        marginBottom: theme.spacing.unit * 4
-    },
+    }
 });
 
-class AppBar extends Component {
-    state = {
-        open: false,
-    };
-
-    handleDrawerOpen = () => {
-        this.setState({open: true});
-    };
-
-    handleDrawerClose = () => {
-        this.setState({open: false});
-    };
-
-
+class AppBar extends PureComponent {
     render() {
-        const {classes} = this.props;
+        const {classes, drawerOpen, handleDrawerOpen} = this.props;
 
         return (
-            <Fragment>
-                <MuiAppBar
-                    position="absolute"
-                    className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
-                >
-                    <MuiToolbar disableGutters={!this.state.open} className={classes.toolbar}>
-                        <MuiIconButton
-                            color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerOpen}
-                            className={classNames(
-                                classes.menuButton,
-                                this.state.open && classes.menuButtonHidden,
-                            )}
-                        >
-                            <MuiMenuIcon/>
-                        </MuiIconButton>
-                    </MuiToolbar>
-                </MuiAppBar>
-                <div className={classes.spacing}/>
-            </Fragment>
+            <MuiAppBar
+                position="absolute"
+                className={classNames(classes.appBar, drawerOpen && classes.appBarShift)}
+            >
+                <MuiToolbar disableGutters={!drawerOpen} className={classes.toolbar}>
+                    <MuiIconButton
+                        color="inherit"
+                        aria-label="Open drawer"
+                        onClick={handleDrawerOpen}
+                        className={classNames(
+                            classes.menuButton,
+                            drawerOpen && classes.menuButtonHidden,
+                        )}
+                    >
+                        <MuiMenuIcon/>
+                    </MuiIconButton>
+                </MuiToolbar>
+            </MuiAppBar>
         );
     }
 }
 
 AppBar.propTypes = {
     classes: PropTypes.object.isRequired,
+    handleDrawerOpen: PropTypes.func.isRequired,
+    drawerOpen: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(AppBar);
