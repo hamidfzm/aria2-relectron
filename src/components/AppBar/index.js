@@ -37,6 +37,10 @@ const styles = theme => ({
     menuButtonHidden: {
         display: 'none',
     },
+    spacing: {
+        ...theme.mixins.toolbar,
+        marginBottom: theme.spacing.unit * 4
+    },
 });
 
 class AppBar extends Component {
@@ -76,6 +80,7 @@ class AppBar extends Component {
                         </MuiIconButton>
                     </MuiToolbar>
                 </MuiAppBar>
+                <div className={classes.spacing}/>
             </Fragment>
         );
     }
