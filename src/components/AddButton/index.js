@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import MuiButton from '@material-ui/core/Button';
@@ -13,12 +13,12 @@ const styles = theme => ({
     }
 });
 
-class AddButton extends Component {
+class AddButton extends PureComponent {
     render() {
-        const {classes} = this.props;
+        const {classes, handleClick} = this.props;
 
         return (
-            <MuiButton variant="fab" color="primary" aria-label="Add" className={classes.button}>
+            <MuiButton variant="fab" color="primary" aria-label="Add" className={classes.button} onClick={handleClick}>
                 <AddIcon/>
             </MuiButton>
         );
@@ -27,6 +27,7 @@ class AddButton extends Component {
 
 AddButton.propTypes = {
     classes: PropTypes.object.isRequired,
+    handleClick: PropTypes.func,
 };
 
 export default withStyles(styles)(AddButton);
