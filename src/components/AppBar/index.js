@@ -7,6 +7,8 @@ import MuiToolbar from '@material-ui/core/Toolbar';
 import MuiIconButton from '@material-ui/core/IconButton';
 import MuiMenuIcon from '@material-ui/icons/Menu';
 
+import Search from '../Search';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -36,7 +38,10 @@ const styles = theme => ({
     },
     menuButtonHidden: {
         display: 'none',
-    }
+    },
+    grow: {
+        flexGrow: 1,
+    },
 });
 
 class AppBar extends PureComponent {
@@ -60,6 +65,8 @@ class AppBar extends PureComponent {
                     >
                         <MuiMenuIcon/>
                     </MuiIconButton>
+                    <div className={classes.grow}/>
+                    <Search/>
                 </MuiToolbar>
             </MuiAppBar>
         );
