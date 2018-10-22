@@ -18,7 +18,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
-        // paddingTop: theme.spacing.unit * 1.1,
+        paddingTop: theme.spacing.unit * 1.2,
         '-webkit-app-region': 'drag'
     },
     appBarShift: {

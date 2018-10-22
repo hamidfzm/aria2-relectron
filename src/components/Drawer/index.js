@@ -10,9 +10,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 const drawerWidth = 240;
 
 const styles = theme => ({
-    list: {
-        width: 250,
-    },
     drawerPaper: {
         position: 'relative',
         whiteSpace: 'nowrap',
@@ -21,6 +18,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
+        paddingTop: theme.spacing.unit * 1.2,
     },
     drawerPaperClose: {
         overflowX: 'hidden',
@@ -32,6 +30,7 @@ const styles = theme => ({
         [theme.breakpoints.up('sm')]: {
             width: theme.spacing.unit * 9,
         },
+        paddingTop: theme.spacing.unit * 1.2,
     },
     toolbarIcon: {
         display: 'flex',
