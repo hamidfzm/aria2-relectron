@@ -1,29 +1,33 @@
-import {DRAWER_OPEN, DRAWER_CLOSE} from '../actions/constants';
+import * as _ from 'lodash';
+
+import {DRAWER_CHANGE, ADD_DIALOG_CHANGE} from '../actions/constants';
 
 const initialState = {
     drawer: {
+        open: false,
+    },
+    addDialog: {
         open: false,
     }
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case DRAWER_OPEN:
-            return {
-                ...state,
-                drawer: {
-                    ...state.drawer,
-                    open: true,
+        case DRAWER_CHANGE:
+            return _.merge({}, state, {
+                    drawer: {
+                        open: action.open,
+                    }
                 }
-            };
-        case DRAWER_CLOSE:
-            return {
-                ...state,
-                drawer: {
-                    ...state.drawer,
-                    open: false,
+            );
+
+        case ADD_DIALOG_CHANGE:
+            return _.merge({}, state, {
+                    addDialog: {
+                        open: action.open,
+                    }
                 }
-            };
+            );
         default:
             return state;
     }

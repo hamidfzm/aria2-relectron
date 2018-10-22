@@ -1,2 +1,2 @@
-export const DRAWER_OPEN = 'uiActions/DRAWER_OPEN';
-export const DRAWER_CLOSE = 'uiActions/DRAWER_CLOSE';
+export const DRAWER_CHANGE = 'uiActions/DRAWER_CHANGE';
+export const ADD_DIALOG_CHANGE = 'uiActions/ADD_DIALOG_CHANGE';
