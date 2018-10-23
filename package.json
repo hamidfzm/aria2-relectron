@@ -1,27 +1,26 @@
 {
-  "name": "aria2-relectron",
+  "name": "Relectron",
   "version": "0.1.0",
   "private": false,
-  "dependencies": {
-    "@material-ui/core": "^3.2.2",
-    "@material-ui/icons": "^3.0.1",
-    "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "react-redux": "^5.0.7",
-    "react-scripts": "2.0.5",
-    "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+  "description": "Aria2 Download Manager GUI build with React+Electron",
+  "author": {
+    "name": "Hamid FzM",
+    "email": "contact@hamidfzm.ir",
+    "url": "https://hamidfzm.ir/"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hamidfzm/aria2-relectron.git"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {},
   "homepage": "./",
-  "main": "src/electron-starter.js",
+  "main": "public/electron.js",
   "scripts": {
     "start": "nf start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "pack": "react-scripts build &&  build --dir  — em.main=public/electron.js",
+    "dist": "react-scripts build && build — em.main=public/electron.js",
     "electron": "electron .",
     "react": "react-scripts start"
   },
@@ -36,6 +35,44 @@
   ],
   "devDependencies": {
     "electron": "^3.0.5",
-    "foreman": "^3.0.1"
+    "electron-builder": "^20.28.4",
+    "foreman": "^3.0.1",
+    "wait-on": "^3.1.0",
+    "@material-ui/core": "^3.2.2",
+    "@material-ui/icons": "^3.0.1",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
+    "prop-types": "^15.6.2",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "2.0.5",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
+  },
+  "build": {
+    "appId": "ir.hamidfzm.relectron",
+    "files": [
+      "build/**/*",
+      "!**/node_modules/*",
+      "!src/"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "icon.ico"
+    }
   }
 }
