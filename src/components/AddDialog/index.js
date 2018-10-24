@@ -9,13 +9,39 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 class AddDialog extends PureComponent {
+    constructor() {
+        super();
+        this.state = {
+            uri: ''
+        }
+    }
+
+    onChange(e) {
+        this.setState({uri: e.target.value})
+    }
+
+    onAdd(start) {
+        const {handleClose, handleAdd} = this.props;
+        const {uri} = this.state;
+        this.setState({uri: ''}, () => {
+            handleAdd(uri, start);
+            handleClose();
+        });
+    }
+
+    onClose() {
+        const {handleClose} = this.props;
+        handleClose()
+    }
+
     render() {
-        const {open, handleClose} = this.props;
+        const {open} = this.props;
+        const {uri} = this.state;
 
         return (
             <Dialog
                 open={open}
-                onClose={handleClose}
+                onClose={() => this.onClose()}
                 aria-labelledby="form-dialog-title"
             >
                 <DialogTitle id="form-dialog-title">Add Download</DialogTitle>
@@ -29,16 +55,18 @@ class AddDialog extends PureComponent {
                         label="Download Address"
                         type="url"
                         fullWidth
+                        onChange={(e) => this.onChange(e)}
+                        value={uri}
                     />
                 </DialogContent>
                 <DialogActions>
-                    <MuiButton onClick={handleClose} color="primary">
+                    <MuiButton onClick={() => this.onClose()} color="primary">
                         Cancel
                     </MuiButton>
-                    <MuiButton onClick={handleClose} color="primary">
+                    <MuiButton onClick={() => this.onAdd(false)} color="primary">
                         Add
                     </MuiButton>
-                    <MuiButton onClick={handleClose} color="primary">
+                    <MuiButton onClick={() => this.onAdd(true)} color="primary">
                         Add & Start
                     </MuiButton>
                 </DialogActions>
@@ -50,6 +78,7 @@ class AddDialog extends PureComponent {
 AddDialog.propTypes = {
     open: PropTypes.bool,
     handleClose: PropTypes.func,
+    handleAdd: PropTypes.func,
 };
 
 export default AddDialog;

@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import AddButtonComponent from '../../components/AddButton';
 import AddDialogComponent from '../../components/AddDialog';
 import {openAddDialog, closeAddDialog} from '../../actions/uiActions';
+import {AddURI as AddURIAria2} from '../../aria2';
 
 class AddButton extends Component {
     render() {
@@ -13,7 +14,14 @@ class AddButton extends Component {
 
         return (
             <Fragment>
-                <AddDialogComponent open={open} handleClose={actions.closeAddDialog}/>
+                <AddDialogComponent open={open}
+                                    handleClose={actions.closeAddDialog}
+                                    handleAdd={(uri, start) => {
+                                        AddURIAria2(uri, {
+                                            dir: 'tmp',
+                                            pause: !start
+                                        }).then((e) => console.log(e))
+                                    }}/>
                 <AddButtonComponent handleClick={actions.openAddDialog}/>
             </Fragment>
         );
@@ -21,7 +29,7 @@ class AddButton extends Component {
 }
 
 AddButton.propTypes = {
-    open: PropTypes.node.isRequired,
+    open: PropTypes.bool.isRequired,
     actions: PropTypes.object.isRequired,
 };
 
