@@ -17,7 +17,7 @@ class AppBar extends Component {
 }
 
 AppBar.propTypes = {
-    open: PropTypes.node.isRequired,
+    open: PropTypes.bool.isRequired,
     actions: PropTypes.object.isRequired,
 };
 
