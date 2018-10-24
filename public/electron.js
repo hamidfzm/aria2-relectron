@@ -24,15 +24,19 @@ function createWindow() {
     });
 
     // and load the index.html of the app.
-    const startUrl = process.env.ELECTRON_START_URL || url.format({
-        pathname: path.join(__dirname, '/../build/index.html'),
-        protocol: 'file:',
-        slashes: true
-    });
-    mainWindow.loadURL(startUrl);
+    if (process.env.ELECTRON_START_URL) {
+        mainWindow.loadURL(process.env.ELECTRON_START_URL);
 
-    // Open the DevTools.
-    // mainWindow.webContents.openDevTools();
+        // Open the DevTools.
+        mainWindow.webContents.openDevTools({mode: 'undocked'});
+    } else {
+        mainWindow.loadURL(url.format({
+            pathname: path.join(__dirname, '/../build/index.html'),
+            protocol: 'file:',
+            slashes: true
+        }));
+
+    }
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -68,6 +72,3 @@ app.on('activate', function () {
         createWindow()
     }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
