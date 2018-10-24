@@ -34,13 +34,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@material-ui/core": "^3.2.2",
+    "@material-ui/icons": "^3.0.1",
+    "aria2": "^4.0.3",
+    "classnames": "^2.2.6",
     "electron": "^3.0.5",
     "electron-builder": "^20.28.4",
     "foreman": "^3.0.1",
-    "wait-on": "^3.1.0",
-    "@material-ui/core": "^3.2.2",
-    "@material-ui/icons": "^3.0.1",
-    "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.5.2",
@@ -48,7 +48,8 @@
     "react-redux": "^5.0.7",
     "react-scripts": "2.0.5",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "wait-on": "^3.1.0"
   },
   "build": {
     "appId": "ir.hamidfzm.relectron",
